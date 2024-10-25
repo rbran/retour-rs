@@ -5,35 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.4.0-alpha.2 (2023-11-15)
-
-### New Features
-
- - <csr-id-faaeec330e42fe3c34b4e3abcaf24d12fdf0884c/> add trailing comma support
-
-### Bug Fixes
-
- - <csr-id-3bf7863bc0ad4ba1d0657e6ee98d43145c16b658/> remove feature requirement for thiscall
-   * fix: remove feature requirement for thiscall
-   abi_thiscall is now stabilized rust and no longer requires nightly rust
-   https://github.com/rust-lang/rust/commit/06daa9e263db87b3c5d4d80110938130db846183
-   
-   * fix: remove feature attribute definition
-   
-   * Keep thiscall-abi feature gate for back compat
-   
-   * Update docs for required thiscall-abi version
-   
-   ---------
+## 0.4.0-alpha.3 (2024-10-24)
 
 ### Commit Statistics
 
 <csr-read-only-do-not-edit/>
 
- - 3 commits contributed to the release over the course of 31 calendar days.
- - 63 days passed between releases.
- - 2 commits were understood as [conventional](https://www.conventionalcommits.org).
- - 2 unique issues were worked on: [#34](https://github.com/Hpmason/retour-rs/issues/34), [#45](https://github.com/Hpmason/retour-rs/issues/45)
+ - 6 commits contributed to the release.
+ - 344 days passed between releases.
+ - 0 commits were understood as [conventional](https://www.conventionalcommits.org).
+ - 6 unique issues were worked on: [#41](https://github.com/Hpmason/retour-rs/issues/41), [#50](https://github.com/Hpmason/retour-rs/issues/50), [#53](https://github.com/Hpmason/retour-rs/issues/53), [#54](https://github.com/Hpmason/retour-rs/issues/54), [#55](https://github.com/Hpmason/retour-rs/issues/55), [#61](https://github.com/Hpmason/retour-rs/issues/61)
 
 ### Commit Details
 
@@ -41,17 +22,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <details><summary>view details</summary>
 
- * **[#34](https://github.com/Hpmason/retour-rs/issues/34)**
-    - Remove feature requirement for thiscall ([`3bf7863`](https://github.com/Hpmason/retour-rs/commit/3bf7863bc0ad4ba1d0657e6ee98d43145c16b658))
- * **[#45](https://github.com/Hpmason/retour-rs/issues/45)**
-    - Add trailing comma support ([`faaeec3`](https://github.com/Hpmason/retour-rs/commit/faaeec330e42fe3c34b4e3abcaf24d12fdf0884c))
- * **Uncategorized**
-    - Bump version ([`4e0d383`](https://github.com/Hpmason/retour-rs/commit/4e0d383eea2c25d93d537d3e89db5ba5e38f8f57))
+ * **[#41](https://github.com/Hpmason/retour-rs/issues/41)**
+    - Replace udis with iced-x86 ([`19f2132`](https://github.com/Hpmason/retour-rs/commit/19f213249b765d23a1cdde3f0b7c7989838d19d2))
+ * **[#50](https://github.com/Hpmason/retour-rs/issues/50)**
+    - Fix temp window not disappearing in dxgi present example ([`6496309`](https://github.com/Hpmason/retour-rs/commit/649630931c9c7e8ccf0d38fbdd44d720ebba9690))
+ * **[#53](https://github.com/Hpmason/retour-rs/issues/53)**
+    - Support Detouring Functions With >14 Args ([`ad52613`](https://github.com/Hpmason/retour-rs/commit/ad526130f345bf2fcf2dabfec137a6cb2b88e2a9))
+ * **[#54](https://github.com/Hpmason/retour-rs/issues/54)**
+    - Fix windows-gnu ci by downgrading mingw version ([`cde49b9`](https://github.com/Hpmason/retour-rs/commit/cde49b9d524d0b375b33650c14ed30def2f8cff2))
+ * **[#55](https://github.com/Hpmason/retour-rs/issues/55)**
+    - Fix detour not disabling on drop in release mode ([`3bab630`](https://github.com/Hpmason/retour-rs/commit/3bab630e234528e848c6c4e0a81656d262224579))
+ * **[#61](https://github.com/Hpmason/retour-rs/issues/61)**
+    - Replace asm! in naked functions with naked_asm! after new nightly update ([`e063c32`](https://github.com/Hpmason/retour-rs/commit/e063c3275d28ebc853cb058aa78d4b29eb8d7340))
 </details>
 
-## 0.3.1 (2023-07-18)
-
 ## 0.8.0 (2021-05-10)
+
+<csr-id-07b346570c69736a57a25212d7121309711ee50b/>
+<csr-id-5808bed377134c7f5d7f7f45ea10154d6b06dab5/>
+<csr-id-6af8b287e7215d5226eede7cb623e9841afcc550/>
+<csr-id-aeadc0032eb1631bedd40476b6211fd41207375a/>
+<csr-id-1aa9cc8b795abcb4b0028ff2ed5cef29e8c21a17/>
+<csr-id-f792981ebb34228d34b444e5a4d736d18aa0fdf5/>
+<csr-id-b840d9eef1260959764f00b7161fa8aa33a3c095/>
+<csr-id-d651621f2c2767f0dd52690298bbe9453f4ac8e5/>
+<csr-id-28c0fdeff412f04f4dc398bd9c1ecab98f7dbc29/>
+<csr-id-3f7f55b189144086d95fc72de4aa3347e7aa6e3b/>
+<csr-id-9c7dcb0cbbd98c39f195b18e968fc34258d6fbfe/>
 
 ### Chore
 
@@ -86,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 18 commits contributed to the release over the course of 346 calendar days.
+ - 18 commits contributed to the release.
  - 624 days passed between releases.
  - 17 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -120,6 +117,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.7.1 (2019-08-25)
 
+<csr-id-23c7fb478c8312da6609ec5b81a83b214a5db8d7/>
+<csr-id-c41834bca87889591093a987683e0768f343c6fd/>
+<csr-id-4de8f01736147cd28bc0ce4c69a397773975aa99/>
+<csr-id-53997fa75416c06cc5baebde59cc046da0d84f51/>
+<csr-id-b8170fff2ae6f3f5e5b3c66d5ea010e70feecbf2/>
+<csr-id-e5124e13a79de218b6c2320d935da135f09da3ed/>
+
 ### Chore
 
  - <csr-id-23c7fb478c8312da6609ec5b81a83b214a5db8d7/> update version 0.7.0 → 0.7.1
@@ -149,7 +153,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 13 commits contributed to the release over the course of 76 calendar days.
+ - 13 commits contributed to the release.
  - 76 days passed between releases.
  - 13 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -177,6 +181,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 </details>
 
 ## 0.7.0 (2019-06-10)
+
+<csr-id-7ff857d5d8cf1e02d11552df03070ef130589ebf/>
+<csr-id-073e0e740941cc76cd0279697bfa53ae0d7bdc93/>
+<csr-id-693abce46d859e8adfb287542531fa081fe029b1/>
+<csr-id-80cd96f83f3936a77a411b24b8a08d8c8623b9a8/>
+<csr-id-dd8dbd04a180c90a2861c9eea3b15d6b412695b4/>
+<csr-id-9a9c14348a5692ea241d50ac6c069f8a67c3f041/>
+<csr-id-24f2ce11dbc65e4807f969cbd0c889531d89e067/>
+<csr-id-ab9f22aab30f35b49f77b84ff0d43c48757e5f53/>
+<csr-id-46cda1077ad0f97886a421bc1e8483000b5c0e78/>
+<csr-id-7d80778ebd38af65d5abf7a27983fe796d9430fa/>
 
 ### Chore
 
@@ -225,7 +240,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 22 commits contributed to the release over the course of 156 calendar days.
+ - 22 commits contributed to the release.
  - 157 days passed between releases.
  - 22 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -263,6 +278,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.6.0 (2019-01-03)
 
+<csr-id-bfa4c4100ffd21d0b276ace23e11b88616fe1f57/>
+<csr-id-4dc337ddc2d505adae55d0a666ab77b122f608b9/>
+<csr-id-5cd38b50f05827ca42990717ac34eade8c3457ee/>
+
 ### Chore
 
  - <csr-id-bfa4c4100ffd21d0b276ace23e11b88616fe1f57/> update version 0.5 → 0.6
@@ -279,7 +298,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 6 commits contributed to the release over the course of 81 calendar days.
+ - 6 commits contributed to the release.
  - 234 days passed between releases.
  - 4 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -301,6 +320,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.5.0 (2018-05-14)
 
+<csr-id-70931eec858b83ff41df79a7f63e1bc496364575/>
+
 ### Chore
 
  - <csr-id-70931eec858b83ff41df79a7f63e1bc496364575/> update editorconfig; matches rustfmt.toml
@@ -318,7 +339,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 4 commits contributed to the release over the course of 9 calendar days.
+ - 4 commits contributed to the release.
  - 49 days passed between releases.
  - 4 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -337,6 +358,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 </details>
 
 ## 0.4.1 (2018-03-26)
+
+<csr-id-f7d34c80ed909bd833cf3aeec62bf3a7c0e85512/>
+<csr-id-927ab0a87528b4fc381c71dd8b587b8ebda726b9/>
 
 ### Documentation
 
@@ -389,6 +413,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.4.0 (2018-03-05)
 
+<csr-id-873270f654469e8c9dbe801b2795745261d072ab/>
+<csr-id-7d20fc09c11a91e50b042dcd44db2c4d0ebdd676/>
+
 ### New Features
 
  - <csr-id-192ce59c1b1031b0046d3329a00f100f7c3d2f06/> update version → 0.4
@@ -400,10 +427,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes
 
+<csr-id-8eedeba920eebc771e832ba9d10643ff78210d02/>
+<csr-id-d11d7299a44b196c5353fdbdd8302d5e7b3fb503/>
+
  - <csr-id-5d708e960da12239f66a618e127c3e234acec04c/> use wrapping_add in handle_relative_branch
    * displacement can be negative in some cases
- - <csr-id-8eedeba920eebc771e832ba9d10643ff78210d02/> static_detours macro parse meta attributes #4
- - <csr-id-d11d7299a44b196c5353fdbdd8302d5e7b3fb503/> generate 'call' method for unsafe types
 
 ### Refactor
 
@@ -414,7 +442,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 8 commits contributed to the release over the course of 108 calendar days.
+ - 8 commits contributed to the release.
  - 151 days passed between releases.
  - 8 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -436,13 +464,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Generate 'call' method for unsafe types ([`d11d729`](https://github.com/Hpmason/retour-rs/commit/d11d7299a44b196c5353fdbdd8302d5e7b3fb503))
 </details>
 
-## 0.4.0-alpha.1 (2023-09-13)
+<csr-unknown>
+ static_detours macro parse meta attributes #4 generate ‘call’ method for unsafe types<csr-unknown/>
+
+## 0.4.0-alpha.2 (2023-11-15)
+
+### New Features
+
+ - <csr-id-faaeec330e42fe3c34b4e3abcaf24d12fdf0884c/> add trailing comma support
+
+### Bug Fixes
+
+ - <csr-id-3bf7863bc0ad4ba1d0657e6ee98d43145c16b658/> remove feature requirement for thiscall
+   * fix: remove feature requirement for thiscall
+   abi_thiscall is now stabilized rust and no longer requires nightly rust
+   https://github.com/rust-lang/rust/commit/06daa9e263db87b3c5d4d80110938130db846183
+* fix: remove feature attribute definition
+* Keep thiscall-abi feature gate for back compat
+* Update docs for required thiscall-abi version
 
 ### Commit Statistics
 
 <csr-read-only-do-not-edit/>
 
- - 12 commits contributed to the release over the course of 98 calendar days.
+ - 4 commits contributed to the release.
+ - 63 days passed between releases.
+ - 2 commits were understood as [conventional](https://www.conventionalcommits.org).
+ - 2 unique issues were worked on: [#34](https://github.com/Hpmason/retour-rs/issues/34), [#45](https://github.com/Hpmason/retour-rs/issues/45)
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **[#34](https://github.com/Hpmason/retour-rs/issues/34)**
+    - Remove feature requirement for thiscall ([`3bf7863`](https://github.com/Hpmason/retour-rs/commit/3bf7863bc0ad4ba1d0657e6ee98d43145c16b658))
+ * **[#45](https://github.com/Hpmason/retour-rs/issues/45)**
+    - Add trailing comma support ([`faaeec3`](https://github.com/Hpmason/retour-rs/commit/faaeec330e42fe3c34b4e3abcaf24d12fdf0884c))
+ * **Uncategorized**
+    - Release retour v0.4.0-alpha.2 ([`a5be6c2`](https://github.com/Hpmason/retour-rs/commit/a5be6c2fd40955dcee0e877367b0ae80a2f8f67f))
+    - Bump version ([`4e0d383`](https://github.com/Hpmason/retour-rs/commit/4e0d383eea2c25d93d537d3e89db5ba5e38f8f57))
+</details>
+
+## 0.4.0-alpha.1 (2023-09-12)
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 12 commits contributed to the release.
  - 98 days passed between releases.
  - 0 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 6 unique issues were worked on: [#24](https://github.com/Hpmason/retour-rs/issues/24), [#26](https://github.com/Hpmason/retour-rs/issues/26), [#30](https://github.com/Hpmason/retour-rs/issues/30), [#31](https://github.com/Hpmason/retour-rs/issues/31), [#38](https://github.com/Hpmason/retour-rs/issues/38), [#39](https://github.com/Hpmason/retour-rs/issues/39)
@@ -474,11 +545,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Add changelog ([`c977a43`](https://github.com/Hpmason/retour-rs/commit/c977a438da96485c51f236fb370fa19a6f67bb95))
 </details>
 
+## 0.3.1 (2023-07-18)
+
 ## v0.3.0 (2017-10-05)
 
 <csr-id-e180448c80855dc533edcbc62390be2e3106294b/>
-
-
 
 ### Bug Fixes
 
@@ -518,10 +589,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <csr-id-0bc9dcc8672899ddfde083100f4707603d29000c/>
 <csr-id-2963f60705e87edda310f547cd4f3d742b3432fd/>
 
-
-<csr-id-0bc9dcc8672899ddfde083100f4707603d29000c/>
-<csr-id-2963f60705e87edda310f547cd4f3d742b3432fd/>
-
 ### New Features
 
  - <csr-id-7c7a75fc84d04a2aeb60acfcfd64dd8966f27ffd/> update version 0.1.1 → 0.2
@@ -545,7 +612,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 4 commits contributed to the release over the course of 17 calendar days.
+ - 4 commits contributed to the release.
  - 83 days passed between releases.
  - 2 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -565,6 +632,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 0.1.1 (2017-06-22)
 
+<csr-id-df1764b6f5efda3a25b71935bd929e0b2e79dfba/>
+
 ### Documentation
 
  - <csr-id-5f0583b679eeefa213482ed229a6e3ae9b8739e2/> add badges to Cargo
@@ -582,7 +651,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 4 commits contributed to the release over the course of 4 calendar days.
+ - 4 commits contributed to the release.
  - 4 days passed between releases.
  - 4 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
@@ -603,45 +672,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## v0.1.0 (2017-06-17)
 
 <csr-id-07b346570c69736a57a25212d7121309711ee50b/>
-<csr-id-5808bed377134c7f5d7f7f45ea10154d6b06dab5/>
-<csr-id-6af8b287e7215d5226eede7cb623e9841afcc550/>
-<csr-id-aeadc0032eb1631bedd40476b6211fd41207375a/>
-<csr-id-1aa9cc8b795abcb4b0028ff2ed5cef29e8c21a17/>
-<csr-id-f792981ebb34228d34b444e5a4d736d18aa0fdf5/>
-<csr-id-b840d9eef1260959764f00b7161fa8aa33a3c095/>
-<csr-id-d651621f2c2767f0dd52690298bbe9453f4ac8e5/>
-<csr-id-28c0fdeff412f04f4dc398bd9c1ecab98f7dbc29/>
-<csr-id-3f7f55b189144086d95fc72de4aa3347e7aa6e3b/>
-<csr-id-23c7fb478c8312da6609ec5b81a83b214a5db8d7/>
-<csr-id-c41834bca87889591093a987683e0768f343c6fd/>
-<csr-id-4de8f01736147cd28bc0ce4c69a397773975aa99/>
-<csr-id-53997fa75416c06cc5baebde59cc046da0d84f51/>
-<csr-id-7ff857d5d8cf1e02d11552df03070ef130589ebf/>
-<csr-id-bfa4c4100ffd21d0b276ace23e11b88616fe1f57/>
-<csr-id-4dc337ddc2d505adae55d0a666ab77b122f608b9/>
-<csr-id-5cd38b50f05827ca42990717ac34eade8c3457ee/>
-<csr-id-70931eec858b83ff41df79a7f63e1bc496364575/>
-<csr-id-f9a24d61af4313f5003def3661da8798f02f1666/>
-<csr-id-b8170fff2ae6f3f5e5b3c66d5ea010e70feecbf2/>
-<csr-id-e5124e13a79de218b6c2320d935da135f09da3ed/>
-<csr-id-073e0e740941cc76cd0279697bfa53ae0d7bdc93/>
-<csr-id-693abce46d859e8adfb287542531fa081fe029b1/>
-<csr-id-80cd96f83f3936a77a411b24b8a08d8c8623b9a8/>
-<csr-id-dd8dbd04a180c90a2861c9eea3b15d6b412695b4/>
-<csr-id-9a9c14348a5692ea241d50ac6c069f8a67c3f041/>
-<csr-id-24f2ce11dbc65e4807f969cbd0c889531d89e067/>
-<csr-id-f7d34c80ed909bd833cf3aeec62bf3a7c0e85512/>
-<csr-id-873270f654469e8c9dbe801b2795745261d072ab/>
-<csr-id-7d20fc09c11a91e50b042dcd44db2c4d0ebdd676/>
-<csr-id-df1764b6f5efda3a25b71935bd929e0b2e79dfba/>
-<csr-id-ae44d79f9179cb858272024ea2d19f929e1920f7/>
-<csr-id-9c7dcb0cbbd98c39f195b18e968fc34258d6fbfe/>
-<csr-id-ab9f22aab30f35b49f77b84ff0d43c48757e5f53/>
-<csr-id-46cda1077ad0f97886a421bc1e8483000b5c0e78/>
-<csr-id-7d80778ebd38af65d5abf7a27983fe796d9430fa/>
-<csr-id-927ab0a87528b4fc381c71dd8b587b8ebda726b9/>
-
-
 <csr-id-5808bed377134c7f5d7f7f45ea10154d6b06dab5/>
 <csr-id-6af8b287e7215d5226eede7cb623e9841afcc550/>
 <csr-id-aeadc0032eb1631bedd40476b6211fd41207375a/>
@@ -824,7 +854,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 24 commits contributed to the release over the course of 195 calendar days.
+ - 24 commits contributed to the release.
  - 24 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 0 issues like '(#ID)' were seen in commit messages
 
@@ -860,16 +890,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Add mutex for unique access ([`0b5fd5f`](https://github.com/Hpmason/retour-rs/commit/0b5fd5fdc47313ca92828a0fa1a13a13d6956127))
     - Initial commit ([`668c73c`](https://github.com/Hpmason/retour-rs/commit/668c73c2ff32e3184ed18aefe967122a399e08a0))
 </details>
-
-<csr-unknown>
-
-
-
-
-
-
-
-
-
-<csr-unknown/>
 
