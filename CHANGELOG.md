@@ -5,37 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.4.0-alpha.3 (2024-10-24)
-
-### Commit Statistics
-
-<csr-read-only-do-not-edit/>
-
- - 6 commits contributed to the release.
- - 344 days passed between releases.
- - 0 commits were understood as [conventional](https://www.conventionalcommits.org).
- - 6 unique issues were worked on: [#41](https://github.com/Hpmason/retour-rs/issues/41), [#50](https://github.com/Hpmason/retour-rs/issues/50), [#53](https://github.com/Hpmason/retour-rs/issues/53), [#54](https://github.com/Hpmason/retour-rs/issues/54), [#55](https://github.com/Hpmason/retour-rs/issues/55), [#61](https://github.com/Hpmason/retour-rs/issues/61)
-
-### Commit Details
-
-<csr-read-only-do-not-edit/>
-
-<details><summary>view details</summary>
-
- * **[#41](https://github.com/Hpmason/retour-rs/issues/41)**
-    - Replace udis with iced-x86 ([`19f2132`](https://github.com/Hpmason/retour-rs/commit/19f213249b765d23a1cdde3f0b7c7989838d19d2))
- * **[#50](https://github.com/Hpmason/retour-rs/issues/50)**
-    - Fix temp window not disappearing in dxgi present example ([`6496309`](https://github.com/Hpmason/retour-rs/commit/649630931c9c7e8ccf0d38fbdd44d720ebba9690))
- * **[#53](https://github.com/Hpmason/retour-rs/issues/53)**
-    - Support Detouring Functions With >14 Args ([`ad52613`](https://github.com/Hpmason/retour-rs/commit/ad526130f345bf2fcf2dabfec137a6cb2b88e2a9))
- * **[#54](https://github.com/Hpmason/retour-rs/issues/54)**
-    - Fix windows-gnu ci by downgrading mingw version ([`cde49b9`](https://github.com/Hpmason/retour-rs/commit/cde49b9d524d0b375b33650c14ed30def2f8cff2))
- * **[#55](https://github.com/Hpmason/retour-rs/issues/55)**
-    - Fix detour not disabling on drop in release mode ([`3bab630`](https://github.com/Hpmason/retour-rs/commit/3bab630e234528e848c6c4e0a81656d262224579))
- * **[#61](https://github.com/Hpmason/retour-rs/issues/61)**
-    - Replace asm! in naked functions with naked_asm! after new nightly update ([`e063c32`](https://github.com/Hpmason/retour-rs/commit/e063c3275d28ebc853cb058aa78d4b29eb8d7340))
-</details>
-
 ## 0.8.0 (2021-05-10)
 
 <csr-id-07b346570c69736a57a25212d7121309711ee50b/>
@@ -464,8 +433,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Generate 'call' method for unsafe types ([`d11d729`](https://github.com/Hpmason/retour-rs/commit/d11d7299a44b196c5353fdbdd8302d5e7b3fb503))
 </details>
 
-<csr-unknown>
- static_detours macro parse meta attributes #4 generate ‘call’ method for unsafe types<csr-unknown/>
+## 0.4.0-alpha.3 (2024-10-24)
+
+### Commit Statistics
+
+<csr-read-only-do-not-edit/>
+
+ - 7 commits contributed to the release.
+ - 344 days passed between releases.
+ - 0 commits were understood as [conventional](https://www.conventionalcommits.org).
+ - 6 unique issues were worked on: [#41](https://github.com/Hpmason/retour-rs/issues/41), [#50](https://github.com/Hpmason/retour-rs/issues/50), [#53](https://github.com/Hpmason/retour-rs/issues/53), [#54](https://github.com/Hpmason/retour-rs/issues/54), [#55](https://github.com/Hpmason/retour-rs/issues/55), [#61](https://github.com/Hpmason/retour-rs/issues/61)
+
+### Commit Details
+
+<csr-read-only-do-not-edit/>
+
+<details><summary>view details</summary>
+
+ * **[#41](https://github.com/Hpmason/retour-rs/issues/41)**
+    - Replace udis with iced-x86 ([`19f2132`](https://github.com/Hpmason/retour-rs/commit/19f213249b765d23a1cdde3f0b7c7989838d19d2))
+ * **[#50](https://github.com/Hpmason/retour-rs/issues/50)**
+    - Fix temp window not disappearing in dxgi present example ([`6496309`](https://github.com/Hpmason/retour-rs/commit/649630931c9c7e8ccf0d38fbdd44d720ebba9690))
+ * **[#53](https://github.com/Hpmason/retour-rs/issues/53)**
+    - Support Detouring Functions With >14 Args ([`ad52613`](https://github.com/Hpmason/retour-rs/commit/ad526130f345bf2fcf2dabfec137a6cb2b88e2a9))
+ * **[#54](https://github.com/Hpmason/retour-rs/issues/54)**
+    - Fix windows-gnu ci by downgrading mingw version ([`cde49b9`](https://github.com/Hpmason/retour-rs/commit/cde49b9d524d0b375b33650c14ed30def2f8cff2))
+ * **[#55](https://github.com/Hpmason/retour-rs/issues/55)**
+    - Fix detour not disabling on drop in release mode ([`3bab630`](https://github.com/Hpmason/retour-rs/commit/3bab630e234528e848c6c4e0a81656d262224579))
+ * **[#61](https://github.com/Hpmason/retour-rs/issues/61)**
+    - Replace asm! in naked functions with naked_asm! after new nightly update ([`e063c32`](https://github.com/Hpmason/retour-rs/commit/e063c3275d28ebc853cb058aa78d4b29eb8d7340))
+ * **Uncategorized**
+    - Adjusting changelogs prior to release of retour v0.4.0-alpha.3 ([`7258db2`](https://github.com/Hpmason/retour-rs/commit/7258db2647a7b3f785dc50ed639d93c5a4c574ff))
+</details>
 
 ## 0.4.0-alpha.2 (2023-11-15)
 
