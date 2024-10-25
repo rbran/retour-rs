@@ -439,7 +439,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <csr-read-only-do-not-edit/>
 
- - 7 commits contributed to the release.
+ - 8 commits contributed to the release.
  - 344 days passed between releases.
  - 0 commits were understood as [conventional](https://www.conventionalcommits.org).
  - 6 unique issues were worked on: [#41](https://github.com/Hpmason/retour-rs/issues/41), [#50](https://github.com/Hpmason/retour-rs/issues/50), [#53](https://github.com/Hpmason/retour-rs/issues/53), [#54](https://github.com/Hpmason/retour-rs/issues/54), [#55](https://github.com/Hpmason/retour-rs/issues/55), [#61](https://github.com/Hpmason/retour-rs/issues/61)
@@ -463,6 +463,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  * **[#61](https://github.com/Hpmason/retour-rs/issues/61)**
     - Replace asm! in naked functions with naked_asm! after new nightly update ([`e063c32`](https://github.com/Hpmason/retour-rs/commit/e063c3275d28ebc853cb058aa78d4b29eb8d7340))
  * **Uncategorized**
+    - Release retour v0.4.0-alpha.3 ([`f5f2429`](https://github.com/Hpmason/retour-rs/commit/f5f24292f83c97871b08692c08a53279caed658e))
     - Adjusting changelogs prior to release of retour v0.4.0-alpha.3 ([`7258db2`](https://github.com/Hpmason/retour-rs/commit/7258db2647a7b3f785dc50ed639d93c5a4c574ff))
 </details>
 
