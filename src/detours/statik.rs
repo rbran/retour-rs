@@ -104,6 +104,7 @@ impl<T: Function> StaticDetour<T> {
   pub unsafe fn initialize<D>(&self, target: T, closure: D) -> Result<&Self>
   where
     D: Fn<T::Arguments, Output = T::Output> + Send + 'static,
+    <T as crate::traits::Function>::Arguments: std::marker::Tuple,
   {
     let mut detour = Box::new(GenericDetour::new(target, self.ffi)?);
     if self
@@ -155,6 +156,7 @@ impl<T: Function> StaticDetour<T> {
   pub fn set_detour<C>(&self, closure: C)
   where
     C: Fn<T::Arguments, Output = T::Output> + Send + 'static,
+    <T as crate::traits::Function>::Arguments: std::marker::Tuple,
   {
     let previous = self
       .closure
