@@ -29,3 +29,6 @@ impl RawMidFuncHook {
     self.0.is_enabled()
   }
 }
+
+unsafe impl Send for RawMidFuncHook {}
+unsafe impl Sync for RawMidFuncHook {}
