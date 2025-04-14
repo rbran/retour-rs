@@ -94,17 +94,17 @@ fn calculate_displacement(source: usize, destination: usize, instruction_size: u
   displacement as u32
 }
 
-pub fn mov_reg(src: Register, dst: Register) -> Box<dyn Thunkable> {
+pub fn mov_reg(src: Register, dst: Register) -> [u8; 2] {
   let opcode = 0x8b;
   let src = src as u8;
   let dst = dst as u8;
 
   let mode = 0b11 << 6;
   let dst = dst << 3;
-  Box::new(vec![opcode, mode | dst | src])
+  [opcode, mode | dst | src]
 }
 
-pub fn and_reg_i32(register: Register, imm: i32) -> Box<dyn Thunkable> {
+pub fn and_reg_i32(register: Register, imm: i32) -> [u8; 6] {
   let opcode = 0x81;
   let register = register as u8;
   let m = 0b11 << 6;
@@ -112,7 +112,10 @@ pub fn and_reg_i32(register: Register, imm: i32) -> Box<dyn Thunkable> {
   let mod_r_m = m | reg | register;
   let imm = imm.to_le_bytes();
 
-  let mut bytes = vec![opcode, mod_r_m];
-  bytes.extend_from_slice(&imm);
-  Box::new(bytes)
+  [opcode, mod_r_m, imm[0], imm[1], imm[2], imm[3]]
 }
+
+pub const PUSH_ALL_REGS: &'static [u8] =
+  include_bytes!(concat!(env!("OUT_DIR"), "/push_all_regs_x86.bin"));
+pub const POP_ALL_RESG: &'static [u8] =
+  include_bytes!(concat!(env!("OUT_DIR"), "/pop_all_regs_x86.bin"));

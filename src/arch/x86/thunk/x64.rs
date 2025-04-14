@@ -1,4 +1,4 @@
-use crate::pic::Thunkable;
+use crate::{pic::Thunkable, RegistersX64};
 use std::mem;
 
 use super::Register;
@@ -79,7 +79,7 @@ pub fn jcc_abs(destination: usize, condition: u8) -> Box<dyn Thunkable> {
   Box::new(slice.to_vec())
 }
 
-pub fn mov_reg_extended(src: Register, dst: Register) -> Box<dyn Thunkable> {
+pub fn mov_reg_extended(src: Register, dst: Register) -> [u8; 3] {
   let rex = 0x48;
   let opcode = 0x89;
   let src = src as u8;
@@ -87,10 +87,10 @@ pub fn mov_reg_extended(src: Register, dst: Register) -> Box<dyn Thunkable> {
 
   let m = 0b11 << 6;
   let src = src << 3;
-  Box::new(vec![rex, opcode, m | src | dst])
+  [rex, opcode, m | src | dst]
 }
 
-pub fn and_reg_i32_extended(register: Register, imm: i32) -> Box<dyn Thunkable> {
+pub fn and_reg_i32_extended(register: Register, imm: i32) -> [u8; 7] {
   let rex = 0x48;
   let opcode = 0x81;
   let register = register as u8;
@@ -99,7 +99,20 @@ pub fn and_reg_i32_extended(register: Register, imm: i32) -> Box<dyn Thunkable> 
   let mod_r_m = m | reg | register;
   let imm = imm.to_le_bytes();
 
-  let mut bytes = vec![rex, opcode, mod_r_m];
-  bytes.extend_from_slice(&imm);
-  Box::new(bytes)
+  [rex, opcode, mod_r_m, imm[0], imm[1], imm[2], imm[3]]
+}
+
+pub const PUSH_ALL_REGS: &'static [u8] =
+  include_bytes!(concat!(env!("OUT_DIR"), "/push_all_regs_x64.bin"));
+pub const POP_ALL_REGS: &'static [u8] =
+  include_bytes!(concat!(env!("OUT_DIR"), "/pop_all_regs_x64.bin"));
+
+pub(crate) fn regs_to_arg0() -> Vec<u8> {
+  use iced_x86::code_asm::*;
+  let mut builder = CodeAssembler::new(64).unwrap();
+  builder.mov(rdi, rsp).unwrap();
+  // builder
+  //  .add(rdi, core::mem::size_of::<RegistersX64>() as i32)
+  //  .unwrap();
+  builder.assemble(0x00).unwrap()
 }

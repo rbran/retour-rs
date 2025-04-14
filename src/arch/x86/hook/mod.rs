@@ -12,7 +12,9 @@ use super::{
 
 /// A mid-function hook.
 ///
-/// `hook` is not directly used as this isn't a detour, there needs to be preparation before calling `hook` since jumping to hook directly can be a disaster
+/// `hook` is not directly used as this isn't a detour, there needs to be
+/// preparation before calling `hook` since jumping to hook directly can be a
+/// disaster
 pub struct Hook {
   emitter: pic::CodeEmitter,
 }
@@ -39,7 +41,8 @@ impl Builder {
   ///
   /// # Safety
   ///
-  /// target..target+15 must be valid to read as u8 slice or behavior may be undefined
+  /// target..target+15 must be valid to read as u8 slice or behavior may be
+  /// undefined
   fn new(target: *const (), hook: *const (), original_first: bool) -> Self {
     Builder {
       target,
@@ -84,26 +87,12 @@ impl Builder {
       emitter.add_thunk(inst);
     }
 
-    // align sp
-    emitter.add_thunk(thunk::push_reg(Register::bp));
-    #[cfg(target_arch = "x86_64")]
-    emitter.add_thunk(thunk::x64::mov_reg_extended(Register::sp, Register::bp));
-    #[cfg(target_arch = "x86")]
-    emitter.add_thunk(thunk::x86::mov_reg(Register::sp, Register::bp));
-    #[cfg(target_arch = "x86_64")]
-    emitter.add_thunk(thunk::x64::and_reg_i32_extended(Register::sp, -16));
-    #[cfg(target_arch = "x86")]
-    emitter.add_thunk(thunk::x86::and_reg_i32(Register::sp, -16));
+    emitter.add_thunk(Box::new(before_hook()));
 
     // actually call hook
     emitter.add_thunk(thunk::call(self.hook as usize));
 
-    // restore sp
-    #[cfg(target_arch = "x86_64")]
-    emitter.add_thunk(thunk::x64::mov_reg_extended(Register::bp, Register::sp));
-    #[cfg(target_arch = "x86")]
-    emitter.add_thunk(thunk::x86::mov_reg(Register::bp, Register::sp));
-    emitter.add_thunk(thunk::pop_reg(Register::bp));
+    emitter.add_thunk(Box::new(after_hook()));
 
     if !self.original_first {
       let inst = self.process_instruction(&inst, inst_bytes)?;
@@ -223,4 +212,51 @@ impl Builder {
       instruction.len(),
     )))
   }
+}
+
+#[cfg(target_arch = "x86")]
+fn before_hook() -> Vec<u8> {
+  // align sp
+  [].iter()
+    .copied()
+    .chain(thunk::x86::PUSH_ALL_REGS.iter().copied())
+    .chain(thunk::x86::mov_reg(Register::sp, Register::bp))
+    .chain(thunk::x86::and_reg_i32(Register::sp, -16))
+    .collect()
+}
+
+#[cfg(target_arch = "x86_64")]
+fn before_hook() -> Vec<u8> {
+  // align sp
+  [].iter()
+    .copied()
+    // save all the regs
+    .chain(thunk::x64::PUSH_ALL_REGS.iter().copied())
+    // save the sp pointer in to BP
+    .chain(thunk::x64::mov_reg_extended(Register::sp, Register::bp))
+    // put the pointer to the regs into arg0, AKA RDI
+    .chain(thunk::x64::regs_to_arg0())
+    // align the stack
+    .chain(thunk::x64::and_reg_i32_extended(Register::sp, -16))
+    .collect()
+}
+
+#[cfg(target_arch = "x86_64")]
+fn after_hook() -> Vec<u8> {
+  // restore sp
+  [].iter()
+    .copied()
+    .chain(thunk::x64::mov_reg_extended(Register::bp, Register::sp))
+    .chain(thunk::x64::POP_ALL_REGS.iter().copied())
+    .collect()
+}
+
+#[cfg(target_arch = "x86")]
+fn after_hook() -> Vec<u8> {
+  // restore sp
+  [].iter()
+    .copied()
+    .chain(thunk::x86::mov_reg(Register::bp, Register::sp))
+    .chain(thunk::x86::POP_ALL_REGS.iter().copied())
+    .collect()
 }

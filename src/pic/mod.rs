@@ -25,3 +25,16 @@ impl Thunkable for Vec<u8> {
     self.len()
   }
 }
+
+/// Thunkable implementation for static data
+impl Thunkable for &'static [u8] {
+  /// Generates a static thunk assumed to be PIC
+  fn generate(&self, _address: usize) -> Vec<u8> {
+    self.to_vec()
+  }
+
+  /// Returns the size of a generated thunk
+  fn len(&self) -> usize {
+    <[u8]>::len(self)
+  }
+}
