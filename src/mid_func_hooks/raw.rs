@@ -3,7 +3,7 @@ use crate::arch::MidFuncHook;
 use crate::error::Result;
 
 // NOTE this should be equal to [arc::x86::thunk::x86::push_all_reg]
-#[repr(packed)]
+#[repr(C, packed)]
 #[derive(Clone, Copy, Debug)]
 pub struct RegistersX86 {
   pub edi: u32,
@@ -17,7 +17,7 @@ pub struct RegistersX86 {
 }
 
 // NOTE this should be equal to [arc::x86::thunk::x64::push_all_reg]
-#[repr(packed)]
+#[repr(C, packed)]
 #[derive(Clone, Copy, Debug)]
 pub struct RegistersX64 {
   pub r15: u64,
